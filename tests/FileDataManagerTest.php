@@ -174,8 +174,8 @@ it('can write a js file', function () {
 
     $this->assertEquals(
         file_get_contents(__DIR__ . '/Fixtures/testForWrite.js'),
-        file_get_contents(__DIR__ . '/Fixtures/TestWritten.js')
+        file_get_contents(__DIR__ . '/Fixtures/testWritten.js')
     );
 
-    $filesystem->delete(__DIR__ . '/Fixtures/TestForWrite.js');
+    $filesystem->delete(__DIR__ . '/Fixtures/testForWrite.js');
 });
