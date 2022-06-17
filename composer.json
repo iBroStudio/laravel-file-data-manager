@@ -1,8 +1,8 @@
 {
-    "name": "ibrostudio/laravel-file-content-manager",
-    "description": "Laravel package to manage files content",
+    "name": "ibrostudio/laravel-file-data-manager",
+    "description": "Laravel package to manage files data",
     "keywords": ["laravel"],
-    "homepage": "https://github.com/ibrostudio/laravel-file-content-manager",
+    "homepage": "https://github.com/ibrostudio/laravel-file-data-manager",
     "license": "MIT",
     "authors": [
         {
