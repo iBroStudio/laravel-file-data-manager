@@ -18,6 +18,7 @@ class FileTypes extends Manager
     {
         return new JsManager();
     }
+
     public function createJsonDriver()
     {
         return new JsonManager();

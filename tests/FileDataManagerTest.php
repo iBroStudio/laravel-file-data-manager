@@ -2,10 +2,10 @@
 
 //use IBroStudio\FileDataManager\Facades\FileDataManager;
 
-use IBroStudio\FileDataManager\Managers\JsonManager;
-use IBroStudio\FileDataManager\Managers\PhpManager;
 use IBroStudio\FileDataManager\FileDataManager;
 use IBroStudio\FileDataManager\Managers\JsManager;
+use IBroStudio\FileDataManager\Managers\JsonManager;
+use IBroStudio\FileDataManager\Managers\PhpManager;
 use Illuminate\Filesystem\Filesystem;
 
 uses()->group('manager');

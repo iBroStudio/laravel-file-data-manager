@@ -12,7 +12,7 @@ class JsManager implements FileManagerContract
         $key = Str::of($key)
             ->replace('.', '\.');
 
-            //dd(Str::of(Str::match('#' . $key->value() . '\:\s?(.*?)\,#s', $content))->value()); // important: '.{{ plugin_name }}',
+        //dd(Str::of(Str::match('#' . $key->value() . '\:\s?(.*?)\,#s', $content))->value()); // important: '.{{ plugin_name }}',
         //dd(Str::of(Str::match('#' . $key->value() . '\s?=\s?{(.*)}#s', $content))->value());
         return Str::of(Str::match('#' . $key->value() . '\:\s?(.*?)\,#s', $content))
             ->trim('\'')
