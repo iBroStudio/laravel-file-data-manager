@@ -7,6 +7,7 @@ $finder = Symfony\Component\Finder\Finder::create()
     ])
     ->name('*.php')
     ->notName('*.blade.php')
+    ->exclude('Fixtures')
     ->ignoreDotFiles(true)
     ->ignoreVCS(true);
 
