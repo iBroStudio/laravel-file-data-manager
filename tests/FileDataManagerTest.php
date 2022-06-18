@@ -80,14 +80,14 @@ it('can replace a value', function () {
 
     $this->assertEquals(
         str_replace("\r", '', $PhpManager->getValue($FileDataManager)),
-        file_get_contents(__DIR__ . '/Fixtures/Test.php')
+        str_replace("\r", '', file_get_contents(__DIR__ . '/Fixtures/Test.php'))
     );
 
     $changeValueCall = $FileDataManager->replaceValue('$testValue', 'tata');
 
     $this->assertEquals(
         str_replace("\r", '', $PhpManager->getValue($FileDataManager)),
-        file_get_contents(__DIR__ . '/Fixtures/TestModifiedValue.php')
+        str_replace("\r", '', file_get_contents(__DIR__ . '/Fixtures/TestModifiedValue.php'))
     );
     expect($changeValueCall)->toBeInstanceOf(FileDataManager::class);
 });
@@ -98,14 +98,14 @@ it('can add a value to an array', function () {
 
     $this->assertEquals(
         str_replace("\r", '', $PhpManager->getValue($FileDataManager)),
-        file_get_contents(__DIR__ . '/Fixtures/Test.php')
+        str_replace("\r", '', file_get_contents(__DIR__ . '/Fixtures/Test.php'))
     );
 
     $changeValueCall = $FileDataManager->addArrayValue('$testArray1', "'NewValue'");
 
     $this->assertEquals(
         str_replace("\r", '', $PhpManager->getValue($FileDataManager)),
-        file_get_contents(__DIR__ . '/Fixtures/TestModifiedArray.php')
+        str_replace("\r", '', file_get_contents(__DIR__ . '/Fixtures/TestModifiedArray.php'))
     );
     expect($changeValueCall)->toBeInstanceOf(FileDataManager::class);
 });
@@ -115,15 +115,15 @@ it('can add a regex value', function () {
     $PhpManager = getPrivateProperty($FileDataManager, 'content');
 
     $this->assertEquals(
-        $PhpManager->getValue($FileDataManager),
-        file_get_contents(__DIR__ . '/Fixtures/Test.php')
+        str_replace("\r", '', $PhpManager->getValue($FileDataManager)),
+        str_replace("\r", '', file_get_contents(__DIR__ . '/Fixtures/Test.php'))
     );
 
     $changeValueCall = $FileDataManager->addRegexValue('#(use\s(.*?)\;)#s', 'use Vendor\Package\Namespace\Class3;');
 
     $this->assertEquals(
         str_replace("\r", '', $PhpManager->getValue($FileDataManager)),
-        file_get_contents(__DIR__ . '/Fixtures/TestModifiedRegex.php')
+        str_replace("\r", '', file_get_contents(__DIR__ . '/Fixtures/TestModifiedRegex.php'))
     );
     expect($changeValueCall)->toBeInstanceOf(FileDataManager::class);
 });
@@ -137,7 +137,7 @@ it('can write a json file', function () {
 
     $this->assertEquals(
         str_replace("\r", '', file_get_contents(__DIR__ . '/Fixtures/testForWrite.json')),
-        file_get_contents(__DIR__ . '/Fixtures/testWritten.json')
+        str_replace("\r", '', file_get_contents(__DIR__ . '/Fixtures/TestWritten.php'))
     );
 
     $filesystem->delete(__DIR__ . '/Fixtures/testForWrite.json');
@@ -156,7 +156,7 @@ it('can write a php file', function () {
 
     $this->assertEquals(
         str_replace("\r", '', file_get_contents(__DIR__ . '/Fixtures/TestForWrite.php')),
-        file_get_contents(__DIR__ . '/Fixtures/TestWritten.php')
+        str_replace("\r", '', file_get_contents(__DIR__ . '/Fixtures/TestWritten.php'))
     );
 
     $filesystem->delete(__DIR__ . '/Fixtures/TestForWrite.php');
@@ -174,7 +174,7 @@ it('can write a js file', function () {
 
     $this->assertEquals(
         str_replace("\r", '', file_get_contents(__DIR__ . '/Fixtures/testForWrite.js')),
-        file_get_contents(__DIR__ . '/Fixtures/testWritten.js')
+        str_replace("\r", '', file_get_contents(__DIR__ . '/Fixtures/testWritten.js'))
     );
 
     $filesystem->delete(__DIR__ . '/Fixtures/testForWrite.js');
