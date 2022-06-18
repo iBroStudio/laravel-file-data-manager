@@ -137,7 +137,7 @@ it('can write a json file', function () {
 
     $this->assertEquals(
         str_replace("\r", '', file_get_contents(__DIR__ . '/Fixtures/testForWrite.json')),
-        str_replace("\r", '', file_get_contents(__DIR__ . '/Fixtures/TestWritten.php'))
+        str_replace("\r", '', file_get_contents(__DIR__ . '/Fixtures/testWritten.json'))
     );
 
     $filesystem->delete(__DIR__ . '/Fixtures/testForWrite.json');
