@@ -18,7 +18,7 @@ Currently, it works with:
 You can install the package via composer:
 
 ```bash
-composer require ibrostudio/laravel-file-content-manager
+composer require ibrostudio/laravel-file-data-manager
 ```
 
 ## Usage
