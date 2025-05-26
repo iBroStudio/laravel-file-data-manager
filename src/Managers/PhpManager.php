@@ -9,14 +9,14 @@ class PhpManager implements FileManagerContract
 {
     public function findValue(string $content, string $key): string|array
     {
-        return Str::of(Str::match('# \\' . $key . '\s?=\s?(.*?)\;#s', $content))
+        return Str::of(Str::match('# \\'.$key.'\s?=\s?(.*?)\;#s', $content))
             ->trim('\'')
             ->trim('"');
     }
 
     public function findArray(string $content, string $key): array
     {
-        $array = Str::of(Str::match('# \\' . $key . '\s?=\s?\[(.*?)\]#s', $content))
+        $array = Str::of(Str::match('# \\'.$key.'\s?=\s?\[(.*?)\]#s', $content))
             ->squish();
         $array = rtrim($array, ',');
         $array = str_replace(' ', '', rtrim($array, ','));
@@ -41,8 +41,8 @@ class PhpManager implements FileManagerContract
     public function addArrayValue(string $content, string $key, mixed $value): string
     {
         return Str::replace(
-            Str::match('#( \\' . $key . '\s?=\s?\[(.*?)\])#s', $content),
-            " $key = [\n" . implode(",\n", array_merge($this->findArray($content, $key), [$value])) . "\n]",
+            Str::match('#( \\'.$key.'\s?=\s?\[(.*?)\])#s', $content),
+            " $key = [\n".implode(",\n", array_merge($this->findArray($content, $key), [$value]))."\n]",
             $content
         );
     }
@@ -52,7 +52,7 @@ class PhpManager implements FileManagerContract
         $current = Str::matchAll(Str::of($regex), $content)->toArray();
         $last_index = count($current) - 1;
         $last_item = $current[$last_index];
-        $current[$last_index] .= "\n" . $value;
+        $current[$last_index] .= "\n".$value;
 
         return Str::replace(
             $last_item,

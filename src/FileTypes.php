@@ -16,16 +16,16 @@ class FileTypes extends Manager
 
     public function createJsDriver()
     {
-        return new JsManager();
+        return new JsManager;
     }
 
     public function createJsonDriver()
     {
-        return new JsonManager();
+        return new JsonManager;
     }
 
     public function createPhpDriver()
     {
-        return new PhpManager();
+        return new PhpManager;
     }
 }

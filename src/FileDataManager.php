@@ -26,7 +26,7 @@ final class FileDataManager
         $fileTypes = app(FileTypes::class);
         $driver = $filesystem->extension($file);
 
-        return new static(
+        return new self(
             file: $file,
             filesystem: $filesystem,
             adapter: $fileTypes->driver($driver),

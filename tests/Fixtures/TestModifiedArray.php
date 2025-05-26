@@ -2,17 +2,14 @@
 
 namespace IBroStudio\FileContentManager\Fixtures;
 
-use Vendor\Package\Namespace\Class1;
-use Vendor\Package\Namespace\Class2;
-
 class Test
 {
     protected string $testValue = 'toto';
 
     protected array $testArray1 = [
-'ArrayValue',
-'NewValue'
-];
+        'ArrayValue',
+        'NewValue',
+    ];
 
     protected array $testArray2 = [
         'ArrayValue',
@@ -32,6 +29,6 @@ class Test
     ];
 
     protected array $testArray6 = [
-        'test-styles' => __DIR__ . '/../dist/test.css',
+        'test-styles' => __DIR__.'/../dist/test.css',
     ];
 }

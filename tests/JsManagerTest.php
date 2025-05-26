@@ -1,22 +1,22 @@
 <?php
 
-//use IBroStudio\FileDataManager\Facades\FileDataManager;
+// use IBroStudio\FileDataManager\Facades\FileDataManager;
 
 use IBroStudio\FileDataManager\FileDataManager;
 
 uses()->group('js');
 
 it('can load a js file', function () {
-    $loaded = FileDataManager::load(__DIR__ . '/Fixtures/test.js');
+    $loaded = FileDataManager::load(__DIR__.'/Fixtures/test.js');
 
     $this->assertEquals(
         $loaded->getContent(),
-        file_get_contents(__DIR__ . '/Fixtures/test.js')
+        file_get_contents(__DIR__.'/Fixtures/test.js')
     );
 });
 
 it('can find a value', function () {
-    $value = FileDataManager::load(__DIR__ . '/Fixtures/test.js')
+    $value = FileDataManager::load(__DIR__.'/Fixtures/test.js')
         ->findValue('important')
         ->getValue();
 
@@ -24,7 +24,7 @@ it('can find a value', function () {
 });
 
 it('can find an array value', function ($key, $expectedValue) {
-    $value = FileDataManager::load(__DIR__ . '/Fixtures/test.js')
+    $value = FileDataManager::load(__DIR__.'/Fixtures/test.js')
         ->findArray($key)
         ->getValue();
 
@@ -35,7 +35,7 @@ it('can find an array value', function ($key, $expectedValue) {
 ]);
 
 it('can find a regex value', function () {
-    $value = FileDataManager::load(__DIR__ . '/Fixtures/test.js')
+    $value = FileDataManager::load(__DIR__.'/Fixtures/test.js')
         ->findRegex('#(preflight\: false)#s')
         ->getValue();
 
@@ -45,7 +45,7 @@ it('can find a regex value', function () {
 });
 
 it('can replace a value', function () {
-    $value = FileDataManager::load(__DIR__ . '/Fixtures/test.js')
+    $value = FileDataManager::load(__DIR__.'/Fixtures/test.js')
         ->replaceValue('important', 'tata')
         ->findValue('important')
         ->getValue();
@@ -54,7 +54,7 @@ it('can replace a value', function () {
 });
 
 it('can add a value to an array', function ($key, $newValue, $expectedValue) {
-    $value = FileDataManager::load(__DIR__ . '/Fixtures/test.js')
+    $value = FileDataManager::load(__DIR__.'/Fixtures/test.js')
         ->addArrayValue($key, $newValue)
         ->findArray($key)
         ->getValue();
@@ -66,7 +66,7 @@ it('can add a value to an array', function ($key, $newValue, $expectedValue) {
 ]);
 
 it('can add a regex value', function () {
-    $value = FileDataManager::load(__DIR__ . '/Fixtures/test.js')
+    $value = FileDataManager::load(__DIR__.'/Fixtures/test.js')
         ->addRegexValue('#(preflight\: (.*?)\,)#s', 'preflight: true,')
         ->findRegex('#(preflight\: (.*?)\,)#s')
         ->getValue();

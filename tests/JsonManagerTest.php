@@ -1,22 +1,22 @@
 <?php
 
-//use IBroStudio\FileDataManager\Facades\FileDataManager;
+// use IBroStudio\FileDataManager\Facades\FileDataManager;
 
 use IBroStudio\FileDataManager\FileDataManager;
 
 uses()->group('json');
 
 it('can load a json file', function () {
-    $loaded = FileDataManager::load(__DIR__ . '/Fixtures/test.json');
+    $loaded = FileDataManager::load(__DIR__.'/Fixtures/test.json');
 
     $this->assertEquals(
         $loaded->getContent(),
-        file_get_contents(__DIR__ . '/Fixtures/test.json')
+        file_get_contents(__DIR__.'/Fixtures/test.json')
     );
 });
 
 it('can find a value', function () {
-    $value = FileDataManager::load(__DIR__ . '/Fixtures/test.json')
+    $value = FileDataManager::load(__DIR__.'/Fixtures/test.json')
         ->findValue('minimum-stability')
         ->getValue();
 
@@ -24,7 +24,7 @@ it('can find a value', function () {
 });
 
 it('can find an array value', function () {
-    $value = FileDataManager::load(__DIR__ . '/Fixtures/test.json')
+    $value = FileDataManager::load(__DIR__.'/Fixtures/test.json')
         ->findValue('require')
         ->getValue();
 
@@ -34,7 +34,7 @@ it('can find an array value', function () {
 });
 
 it('can find an array value with a dotted key', function () {
-    $value = FileDataManager::load(__DIR__ . '/Fixtures/test.json')
+    $value = FileDataManager::load(__DIR__.'/Fixtures/test.json')
         ->findValue('autoload.classmap')
         ->getValue();
 
@@ -45,7 +45,7 @@ it('can find an array value with a dotted key', function () {
 });
 
 it('can replace a value', function () {
-    $value = FileDataManager::load(__DIR__ . '/Fixtures/test.json')
+    $value = FileDataManager::load(__DIR__.'/Fixtures/test.json')
         ->replaceValue('name', 'tata')
         ->findValue('name')
         ->getValue();
@@ -54,7 +54,7 @@ it('can replace a value', function () {
 });
 
 it('can add a value to an array', function () {
-    $value = FileDataManager::load(__DIR__ . '/Fixtures/test.json')
+    $value = FileDataManager::load(__DIR__.'/Fixtures/test.json')
         ->addArrayValue('keywords', 'tata')
         ->findValue('keywords')
         ->getValue();
@@ -63,7 +63,7 @@ it('can add a value to an array', function () {
 });
 
 it('can add a value to an array with a dotted key', function () {
-    $value = FileDataManager::load(__DIR__ . '/Fixtures/test.json')
+    $value = FileDataManager::load(__DIR__.'/Fixtures/test.json')
         ->addArrayValue('extra.laravel.dont-discover', 'tata')
         ->findValue('extra.laravel.dont-discover')
         ->getValue();

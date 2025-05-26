@@ -1,22 +1,22 @@
 <?php
 
-//use IBroStudio\FileDataManager\Facades\FileDataManager;
+// use IBroStudio\FileDataManager\Facades\FileDataManager;
 
 use IBroStudio\FileDataManager\FileDataManager;
 
 uses()->group('php');
 
 it('can load a php file', function () {
-    $loaded = FileDataManager::load(__DIR__ . '/Fixtures/Test.php');
+    $loaded = FileDataManager::load(__DIR__.'/Fixtures/Test.php');
 
     $this->assertEquals(
         $loaded->getContent(),
-        file_get_contents(__DIR__ . '/Fixtures/Test.php')
+        file_get_contents(__DIR__.'/Fixtures/Test.php')
     );
 });
 
 it('can find a value', function () {
-    $value = FileDataManager::load(__DIR__ . '/Fixtures/Test.php')
+    $value = FileDataManager::load(__DIR__.'/Fixtures/Test.php')
         ->findValue('$testValue')
         ->getValue();
 
@@ -24,7 +24,7 @@ it('can find a value', function () {
 });
 
 it('can find an array value', function ($key, $expectedValue) {
-    $value = FileDataManager::load(__DIR__ . '/Fixtures/Test.php')
+    $value = FileDataManager::load(__DIR__.'/Fixtures/Test.php')
         ->findArray($key)
         ->getValue();
 
@@ -39,7 +39,7 @@ it('can find an array value', function ($key, $expectedValue) {
 ]);
 
 it('can find a regex value', function () {
-    $value = FileDataManager::load(__DIR__ . '/Fixtures/Test.php')
+    $value = FileDataManager::load(__DIR__.'/Fixtures/Test.php')
         ->findRegex('#(use\s(.*?)\;)#s')
         ->getValue();
 
@@ -50,7 +50,7 @@ it('can find a regex value', function () {
 });
 
 it('can replace a value', function () {
-    $value = FileDataManager::load(__DIR__ . '/Fixtures/Test.php')
+    $value = FileDataManager::load(__DIR__.'/Fixtures/Test.php')
         ->replaceValue('$testValue', 'tata')
         ->findValue('$testValue')
         ->getValue();
@@ -59,7 +59,7 @@ it('can replace a value', function () {
 });
 
 it('can add a value to an array', function ($key, $newValue, $expectedValue) {
-    $value = FileDataManager::load(__DIR__ . '/Fixtures/Test.php')
+    $value = FileDataManager::load(__DIR__.'/Fixtures/Test.php')
         ->addArrayValue($key, $newValue)
         ->findArray($key)
         ->getValue();
@@ -75,7 +75,7 @@ it('can add a value to an array', function ($key, $newValue, $expectedValue) {
 ]);
 
 it('can add a regex value', function () {
-    $value = FileDataManager::load(__DIR__ . '/Fixtures/Test.php')
+    $value = FileDataManager::load(__DIR__.'/Fixtures/Test.php')
         ->addRegexValue('#(use\s(.*?)\;)#s', 'use Vendor\Package\Namespace\Class3;')
         ->findRegex('#(use\s(.*?)\;)#s')
         ->getValue();

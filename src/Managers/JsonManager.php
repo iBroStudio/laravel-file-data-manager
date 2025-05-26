@@ -66,7 +66,7 @@ class JsonManager implements FileManagerContract
 
         $last_index = count($current) - 1;
         $last_item = $current[$last_index];
-        $current[$last_index] .= "\n" . $value;
+        $current[$last_index] .= "\n".$value;
 
         return Str::replace(
             $last_item,
